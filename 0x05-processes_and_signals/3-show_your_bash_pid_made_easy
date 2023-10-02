@@ -2,4 +2,4 @@
 #
 # Get bash PIDs the right way
 
-pgrep -l bash
+ps auxf -n bash
