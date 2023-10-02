@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# shows bassh pid
-# shellcheck disable=SC2009
+#
+# Get bash PIDs the right way
 
-ps auxf -n bash
+pgrep -l bash
