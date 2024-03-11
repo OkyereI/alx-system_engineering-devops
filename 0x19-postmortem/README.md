@@ -1,16 +1,14 @@
 # Postmortem
 
-Upon the release of Holberton School's System Engineering & DevOps project 0x19,
-approximately 00:07 Pacific Standard Time (PST), an outage occurred on an isolated
+Upon the release of ALX School's System Engineering & DevOps project 0x19,
+approximately 10:07 Green which Merridean Time (GMT), an outage occurred on an isolated
 Ubuntu 14.04 container running an Apache web server. GET requests on the server led to
 `500 Internal Server Error`'s, when the expected response was an HTML file defining a
-simple Holberton WordPress site.
+simple Alx website site and Limit Reach.
 
 ## Debugging Process
 
-Bug debugger Brennan (BDB... as in my actual initials... made that up on the spot, pretty
-good, huh?) encountered the issue upon opening the project and being, well, instructed to
-address it, roughly 19:20 PST. He promptly proceeded to undergo solving the problem.
+In solving the problem.
 
 1. Checked running processes using `ps aux`. Two `apache2` processes - `root` and `www-data` -
 were properly running.
@@ -38,28 +36,25 @@ matching to try and locate the erroneous `.phpp` file extension. Located it in t
 
 ## Summation
 
-In short, a typo. Gotta love'em. In full, the WordPress app was encountering a critical
-error in `wp-settings.php` when tyring to load the file `class-wp-locale.phpp`. The correct
-file name, located in the `wp-content` directory of the application folder, was
+In short, a typo. catch the internal error. In full, the site app was encountering a critical
+error in settings.php` when tyring to load the file . The correct
+file name, located in the `setting-content` directory of the application folder, was
 `class-wp-locale.php`.
 
 Patch involved a simple fix on the typo, removing the trailing `p`.
 
 ## Prevention
 
-This outage was not a web server error, but an application error. To prevent such outages
+This outage was  an application error. To prevent such outages
 moving forward, please keep the following in mind.
 
 * Test! Test test test. Test the application before deploying. This error would have arisen
 and could have been addressed earlier had the app been tested.
 
 * Status monitoring. Enable some uptime-monitoring service such as
-[UptimeRobot](./https://uptimerobot.com/) to alert instantly upon outage of the website.
 
-Note that in response to this error, I wrote a Puppet manifest
-[0-strace_is_your_friend.pp](https://github.com/bdbaraban/holberton-system_engineering-devops/blob/master/0x17-web_stack_debugging_3/0-strace_is_your_friend.pp)
 to automate fixing of any such identitical errors should they occur in the future. The manifest
-replaces any `phpp` extensions in the file `/var/www/html/wp-settings.php` with `php`.
+replaces any `phpp`
 
-But of course, it will never occur again, because we're programmers, and we never make
-errors! :wink:
+But of course, it will never occur again, because we are  debuggers and programmers, and we never make
+errors! 
