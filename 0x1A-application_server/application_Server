@@ -22,7 +22,7 @@ git clone https://github.com/OkyereI/AirBnB_clone_v4
 # Change Directory
 cd AirBnB_clone_v2
 # Switch Branches
-git checkout app-server
+git checkout application_Server
 
 # Define the path to the Nginx configuration file to be overwritten
 NGINX_CONFIG="/etc/nginx/sites-enabled/default"
